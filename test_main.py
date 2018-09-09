@@ -77,7 +77,7 @@ def checkIsNull(df,str):
             return
 
 
-# matplotlib画图简用
+# 自定义matplotlib画图func
 def print_plot(data, keyword,title='', xlab='', ylab='',bins=10):
     global fonts
     fig = plt.figure()
@@ -98,7 +98,7 @@ def print_plot_sns_compare(data,keyword, title='', xlab='', ylab='',bins=[]):
                      , ax=axes[i])
     plt.show()
 
-
+    
 # 使用seaborn的distplot功能绘制三组不同类别数据分布的概率密度曲线、直方图和fit拟合情况
 def print_plot_sns_2(data,keyword,dataAnother='',keywordAnother=[], isTrain=True,title='', xlab='', ylab='',bins=10,binsAnother=10):
     sns.set(palette="muted", color_codes=True,font='SimHei')
@@ -206,7 +206,7 @@ def read_excel():
     # print(sheet.cell(1, 0).ctype)
 
 
-def read_excel_wtpd():
+def read_excel_wtpandas():
     # pass
     oraengine = sqlalchemy.create_engine('oracle://TireProject:jl123456@localhost:1521/orcl')
 
@@ -332,28 +332,9 @@ def read_excel_wtpd():
     # print(excel_no_lost.dtypes)
 
 
-def test():
-    oraengine = sqlalchemy.create_engine('oracle://TireProject:jl123456@localhost:1521/orcl')
-    # data = pd.DataFrame([[1,2,3],[4,5,6],[77,8,9],[10,11,12]],columns=['col1','col2','col3'])
-
-    # Data For DB
-    # data = pd.read_sql('select * from test1',oraengine)
-    # print(data)
-    # checkIsNull(data,'test')
-    # data.to_sql("test1",oraengine,if_exists="replace",index=True,chunksize=3000,index_label=['nihao'])
-
-    # Data For Excel
-    # excel = pd.read_excel(r'F:\轮胎项目\导出数据\接口1数据列表_203_6.15-6.30尾部\接口1数据列表_203_6.15-6.16.xlsx')
-    # print(excel)
-    # print(excel.dtypes)
-    # print(excel)
-    # excel.loc[:, ["终端设备时间", "平台接收时间"]] = excel.loc[:, ["终端设备时间", "平台接收时间"]].apply(pd.to_datetime)
-
-    # excel.to_sql('接口1数据_TEST1',oraengine,if_exists="append",index=False,chunksize=100)
 
 
-
-
+# plot single threshold show
 def read_excel_threshold():
     oraengine = sqlalchemy.create_engine('oracle://TireProject:jl123456@localhost:1521/orcl')
 
@@ -446,7 +427,7 @@ def read_excel_threshold():
 
 
 
-
+# plot different thresholds show and compare
 def read_excel_threshold_compare():
     oraengine = sqlalchemy.create_engine('oracle://TireProject:jl123456@localhost:1521/orcl')
 
@@ -511,7 +492,7 @@ def read_excel_threshold_compare():
 
 
 
-def read_excel_time_axis():
+def data_time_axis_analyse():
     file_directory = 'F:\轮胎项目\导出数据\整合(5.25-6.30)\\'
 
     excel_name1_g = '绑带式轮胎数据_203(5.25-6.30).xlsx'
@@ -730,19 +711,6 @@ def read_excel_time_axis():
     plt.grid(True,linestyle=':', linewidth=0.5)
     plt.show()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     # print(luntai008_data)
     # print(luntai08_data[["轮胎温度（℃）", "轮胎压力（Bar）"]].describe())
     # print(luntai08_data.dtypes)
@@ -760,9 +728,8 @@ def read_excel_time_axis():
 
 if __name__ == '__main__':
     # read_excel()
-    # read_excel_wtpd()
-    # test()
+    # read_excel_wtpandas()
     # read_excel_threshold()
     # read_excel_threshold_compare()
-    read_excel_time_axis()
+    data_time_axis_analyse()
 
