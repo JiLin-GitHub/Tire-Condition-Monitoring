@@ -1,0 +1,14 @@
+--select count(*) from AQF_FORECAST_ONE_DAY_WX_PM25 t;
+-- count(*) from AQF_FORECAST_ONE_DAY_WX_CO t;
+select t.pointid,count(*) from AQF_FORECAST_ONE_DAY_WX_SO2 t group by t.pointid;
+select t.pointid,count(*) from AQF_FORECAST_ONE_DAY_WX_O3 t group by t.pointid;
+select t.create_date,count(*) from AQF_FORECAST_ONE_DAY_WX_PM25 t where t.pointid != 6 and t.pointid != 31  group by t.create_date order by t.create_date,count(*);
+select t.create_date,count(*) from AQF_FORECAST_ONE_DAY_WX_PM10 t where t.pointid != 6 and t.pointid != 31  group by t.create_date order by t.create_date,count(*);
+
+
+--select * from AQF_FORECAST_ONE_DAY_WX_PM10 t where t.pointid=1 and 
+--t.create_date>=to_date('2016-6-15 15','YYYY-MM-DD HH24') and t.create_date<=to_date('2016-6-20 15','YYYY-MM-DD HH24')
+ --order by t.create_date;
+--select max(t.create_date),min(t.create_date) from AQF_FORECAST_ONE_DAY_WX_PM25 t ;
+
+--¹²7914

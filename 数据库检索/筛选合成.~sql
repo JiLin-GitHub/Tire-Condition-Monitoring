@@ -1,0 +1,19 @@
+select * from TESTDATA t order by t.create_date,to_number(t.pointid);
+select t.create_date,count(*) from TESTDATA t group by t.create_date order by t.create_date;
+--select t.create_date,t.pointid,count(*) from TESTDATA t group by t.create_date,t.pointid order by t.create_date,t.pointid;
+
+select max(t.pm25),min(t.pm25),max(t.pm10),min(t.pm10),max(t.no2),min(t.no2),
+max(t.so2),min(t.so2),max(t.o3),min(t.o3),max(t.co),min(t.co) from TESTDATA t ;
+select max(t.date_processed),min(t.date_processed),max(t.temperature),min(t.temperature),max(t.pressure),min(t.pressure),
+max(t.humidity),min(t.humidity) from TESTDATA t ;
+--select * from TESTDATA t where t.temperature=0 ;
+--select * from TESTDATA t where t.create_date=to_date('2017-2-11 7','YYYY-MM-DD HH24') ;
+
+
+select * from TESTDATA t where t.pm10>0.25 ;
+select * from TESTDATA t where t.pm25>0.25 ;
+select * from TESTDATA t where t.o3<0 ;
+--update TESTDATA t set t.o3=0-t.o3  where t.o3<0-- and t.pm25>0.3;--t.create_date=to_date('2017-2-11 7','YYYY-MM-DD HH24');
+--select avg(t.pm25),avg(pm10),avg(no2),avg(so2),avg(co),avg(o3) from TESTDATA t ;
+
+--update TESTDATA t set t.pm10=t.pm10-0.13  where  t.pm10>0.4;
